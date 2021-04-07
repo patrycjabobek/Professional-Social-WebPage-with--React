@@ -14,23 +14,30 @@ import { LeftProfile } from '../Profile/LeftProfile';
 const Content = styled.div`
     max-width: 1400px;
     align-items: center;
-    display: flex;
+    font-family: sans-serif;
+    display: block;
+    margin: auto;
     color: ${Colors.black};
+`;
+
+const Main = styled.main`
+    width: 80%;
+    float: left;
 `;
 
 const MainPage: FC = () => {
     return (
-        <Wrapper>
+        <Content>
             <TopMenu/>
-            <Content>
+            <Main>
                 <LeftProfile/>
                 <Wrapper>
                     <LatestPublications/>
                     <ResumeYourWork/>
                     <Workspaces/>
                 </Wrapper>               
-            </Content>
-        </Wrapper>
+            </Main>
+        </Content>
     );
 };
 
