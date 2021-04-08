@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 import { InnerWrapper} from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
@@ -41,8 +42,6 @@ const Styledlist = styled.div`
     }
 `;
 
-
-
 export const HomeDropdown: FC = () => {
     return (
         <StyledDropdown>
@@ -50,47 +49,67 @@ export const HomeDropdown: FC = () => {
             <h3>Platform</h3>
             <Styledlist>
                 <InnerWrapper>
-                    <Icon src='./media/icons/house.png' />
+                    <Link to="/">
+                        <Icon src='./media/icons/house.png' />
+                    </Link>
                     <h3>Home</h3>
                 </InnerWrapper>
                 <InnerWrapper>
-                    <Icon src='./media/icons/publications.png' />
-                    <h3>Publications</h3>
+                    <Link to="/publications">
+                        <Icon src='./media/icons/publications.png' />
+                        <h3>Publications</h3>
+                    </Link>
                 </InnerWrapper>
                 <InnerWrapper>
-                <Icon src='./media/icons/people.png' />                   
-                <h3>People</h3>
+                    <Link to="/people">
+                        <Icon src='./media/icons/people.png' />
+                        <h3>People</h3>
+                    </Link>                   
                 </InnerWrapper>
                 <InnerWrapper>
-                <Icon src='./media/icons/entities.png' /> 
-                    <h3>Entities</h3>
+                    <Link to="/entities">
+                        <Icon src='./media/icons/entities.png' />
+                        <h3>Entities</h3>
+                    </Link>
                 </InnerWrapper>
                 <InnerWrapper>
-                <Icon src='./media/icons/administration.png' /> 
-                    <h3>Administration</h3>
+                    <Link to="/administration">
+                        <Icon src='./media/icons/administration.png' />
+                        <h3>Administration</h3>
+                    </Link>
                 </InnerWrapper>
             </Styledlist>
             <h3>Workspaces</h3>
             <Styledlist>
                 <InnerWrapper>
-                    <Icon src='./media/icons/house.png' /> 
-                    <h3>Client contract</h3>
+                    <Link to="/client-contract">
+                        <Icon src='./media/icons/house.png' />
+                        <h3>Client contract</h3>
+                    </Link>
                 </InnerWrapper>
                 <InnerWrapper>
-                    <Icon src='./media/icons/house.png' /> 
-                    <h3>Supplier contract</h3>
+                    <Link to="/supplier-contract">
+                        <Icon src='./media/icons/house.png' />
+                        <h3>Supplier contract</h3>
+                    </Link>
                 </InnerWrapper>
                 <InnerWrapper>
-                    <Icon src='./media/icons/house.png' /> 
-                    <h3>Corporate</h3>
+                    <Link to="/corporate">
+                        <Icon src='./media/icons/house.png' />
+                        <h3>Corporate</h3>
+                    </Link>
                 </InnerWrapper>
                 <InnerWrapper>
-                    <Icon src='./media/icons/house.png' /> 
-                    <h3>Group Norms</h3>
+                    <Link to="/group-norms">
+                        <Icon src='./media/icons/house.png' />
+                        <h3>Group Norms</h3>
+                    </Link>
                 </InnerWrapper>
                 <InnerWrapper>
-                    <Icon src='./media/icons/house.png' /> 
-                    <h3>Real estate contracts</h3>
+                    <Link to="/real-estate-contracts">
+                        <Icon src='./media/icons/house.png' />
+                        <h3>Real estate contracts</h3>
+                    </Link>
                 </InnerWrapper>
             </Styledlist>
             <Line/>
@@ -100,7 +119,7 @@ export const HomeDropdown: FC = () => {
                     <RoundAvatar src="./media/images/avatar.jpg"/>
                     <Styledlist>
                         <h3>Patrycja Bobek</h3>
-                        <a href="">See profile</a>
+                        <h4>See profile</h4>
                     </Styledlist>
                     
                 </InnerWrapper>
