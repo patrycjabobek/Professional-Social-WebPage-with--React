@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
 import { InnerWrapper} from '../../styledHelpers/Components';
@@ -50,12 +51,16 @@ export const HomeDropdown: FC = () => {
             <h3>Platform</h3>
             <Styledlist>
                 <InnerWrapper>
-                    <Icon src='./media/icons/house.png' />
-                    <h3>Home</h3>
+                    <Link to="/">
+                        <Icon src='./media/icons/house.png' />
+                        <h3>Home</h3>
+                    </Link>
                 </InnerWrapper>
                 <InnerWrapper>
-                    <Icon src='./media/icons/publications.png' />
-                    <h3>Publications</h3>
+                    <Link to="/publications">
+                        <Icon src='./media/icons/publications.png' />
+                        <h3>Publications</h3>
+                    </Link>
                 </InnerWrapper>
                 <InnerWrapper>
                 <Icon src='./media/icons/people.png' />                   
@@ -100,7 +105,7 @@ export const HomeDropdown: FC = () => {
                     <RoundAvatar src="./media/images/avatar.jpg"/>
                     <Styledlist>
                         <h3>Patrycja Bobek</h3>
-                        <a href="">See profile</a>
+                        <a href="/">See profile</a>
                     </Styledlist>
                     
                 </InnerWrapper>
@@ -119,4 +124,5 @@ export const HomeDropdown: FC = () => {
                 <h3>Logout</h3>
             </InnerWrapper>
         </StyledDropdown>
-    )}
+    );
+};
