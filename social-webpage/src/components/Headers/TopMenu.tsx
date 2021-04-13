@@ -1,6 +1,8 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
 import useDropdown from 'react-dropdown-hook';
+import { Link } from "react-router-dom";
+
 import Icon from '../Common/Icon';
 
 import { Colors } from '../../styledHelpers/Colors';
@@ -73,7 +75,7 @@ export const TopMenu: FC = () => {
     
     return (
         <Wrapper>
-            <Logo />
+            <Link to="/"><Logo /></Link>
             <StyledDropdown ref={wrapperRef}>
                <InnerWrapper onClick={menuHandler}>
                <Icon src="./media/icons/house.png" />
@@ -89,7 +91,9 @@ export const TopMenu: FC = () => {
             </StyledSearchBar>
             <StyledIconsBar>
             <Icon src="./media/icons/comments.png" />
-            <Icon src="./media/icons/house.png" />
+            <Link to="/">
+                <Icon src="./media/icons/house.png" />
+            </Link>
             <Icon src="./media/icons/bell.png" />
             </StyledIconsBar>
         </Wrapper>

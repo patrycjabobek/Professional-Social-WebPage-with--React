@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-export const Publications: FC = () => {
+export const RealEstateContracts: FC = () => {
     return (
         <div>
-            Publications 
+            Real Estate Contracts  
         </div>
     )
 }

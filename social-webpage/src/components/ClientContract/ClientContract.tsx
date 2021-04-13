@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-export const Publications: FC = () => {
+export const ClientContract: FC = () => {
     return (
         <div>
-            Publications 
+            Client Contract  
         </div>
     )
 }

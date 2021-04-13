@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-export const Publications: FC = () => {
+export const Administration: FC = () => {
     return (
         <div>
-            Publications 
+            Administration  
         </div>
     )
 }
