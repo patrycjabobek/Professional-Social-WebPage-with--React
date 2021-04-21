@@ -6,8 +6,7 @@ export const Wrapper = styled.div`
     justify-content: center;
     padding: 5px;
 `;
-
-export const InnerWrapper = styled.div`
+ export const InnerWrapper = styled.div`
     background: #ffffff;
     display: flex;
     align-items: center;

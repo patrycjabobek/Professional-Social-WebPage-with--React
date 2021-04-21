@@ -1,5 +1,9 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux'; // wyciąga nam dane z reducerów
+import { IState } from '../../reducers';
+import { IUsersReducer } from '../../reducers/usersReducer';
+
 
 import RoundAvatar from '../Common/RoundAvatar';
 import Line from '../Common/Line';
@@ -9,45 +13,51 @@ import { InnerWrapper } from '../../styledHelpers/Components';
 
 import { Colors } from '../../styledHelpers/Colors';
 
-const Aside = styled.aside`
+const Aside = styled.div`
     background: ${Colors.elephantbone};
-    width: 25%;
+    display:flex;
+    flex-direction: column;
+    width: 23%;
     height: 100vh;
-    &:first-child {
-        padding: 5px;
-    }
+    padding-top: 20px;
+    text-align: -webkit-center;
 `;
 
 const AsideMainContent = styled.div`    
     background: ${Colors.white};
     border: 1px solid ${Colors.verylightgray};
-    padding: 20px;
+    padding: 10px 20px;
+    width: calc(100% * 0.65);
+    place-self: center;
     margin: 0 20px 0 20px;
-    & > h2 {
+    & > h2, h3 {
         color: ${Colors.darkgrey};
+        padding: 5px 0;
     }
 `;
 
 const AsideSecondaryContent = styled(AsideMainContent)`
     background: ${Colors.elephantbone};
     border: none;
+    place-self: center;
     & > div {
         background: ${Colors.elephantbone};
     }
 `;
-const BigAvatar = styled(RoundAvatar)`
-    width: 50px;
-    height: 50px;
-`;
+
 
 export const LeftProfile: FC = () => {
+    const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({// jeżeli więcej to dodajemy &&
+        ...globalState.users
+    })); 
+
     return (
         <Aside>
-            <div></div>
-            <AsideMainContent>
-                    <BigAvatar src='./media/images/avatar.jpg'/>
-                    <h2>Patrycja Bobek</h2>
-                    <h3>Job title - </h3>
+            {usersList.length > 0 &&
+                <AsideMainContent>
+                    <RoundAvatar src='./media/images/avatar.jpg'/>
+                    <h2>{usersList[0].name}</h2>
+                    <h3>Job title - {usersList[0].company}</h3>
                     <Line />
                     <div>
                         <InnerWrapper>
@@ -61,7 +71,9 @@ export const LeftProfile: FC = () => {
                             <Icon src='.media/icons/plus.png'/>
                         </InnerWrapper>
                     </div>
-            </AsideMainContent>
+                </AsideMainContent>
+            }
+            
             <AsideSecondaryContent>              
                     <InnerWrapper>
                         <Icon src='.media/icons/publications.png' />
