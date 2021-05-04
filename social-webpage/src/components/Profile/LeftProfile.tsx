@@ -1,36 +1,37 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux'; // wyciąga nam dane z reducerów
 import { IState } from '../../reducers';
 import { IUsersReducer } from '../../reducers/usersReducer';
+import { IPhotosReducer } from '../../reducers/photosReducer';
 
-
-import RoundAvatar from '../Common/RoundAvatar';
 import Line from '../Common/Line';
 import Icon from '../Common/Icon';
-import { InnerWrapper } from '../../styledHelpers/Components';
+import { InnerWrapper, InlineWrapper } from '../../styledHelpers/Components';
 
 
 import { Colors } from '../../styledHelpers/Colors';
 
 const Aside = styled.div`
-    background: ${Colors.elephantbone};
     display:flex;
     flex-direction: column;
     width: 23%;
     height: 100vh;
     padding-top: 20px;
+    place-self: flex-start;
     text-align: -webkit-center;
 `;
 
 const AsideMainContent = styled.div`    
     background: ${Colors.white};
     border: 1px solid ${Colors.verylightgray};
+    border-radius: 5px;
     padding: 10px 20px;
     width: calc(100% * 0.65);
     place-self: center;
     margin: 0 20px 0 20px;
-    & > h2, h3 {
+    h2, h3 {
         color: ${Colors.darkgrey};
         padding: 5px 0;
     }
@@ -40,52 +41,75 @@ const AsideSecondaryContent = styled(AsideMainContent)`
     background: ${Colors.elephantbone};
     border: none;
     place-self: center;
-    & > div {
+    div {
         background: ${Colors.elephantbone};
     }
 `;
 
+const BigAvatar = styled.img`
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+`;
 
 export const LeftProfile: FC = () => {
-    const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({// jeżeli więcej to dodajemy &&
-        ...globalState.users
+    const { usersList, photosList, currentUser } = useSelector<IState, IUsersReducer & IPhotosReducer>(globalState => ({
+        ...globalState.users,
+        ...globalState.photos
     })); 
 
     return (
         <Aside>
-            {usersList.length > 0 &&
                 <AsideMainContent>
-                    <RoundAvatar src='./media/images/avatar.jpg'/>
-                    <h2>{usersList[0].name}</h2>
-                    <h3>Job title - {usersList[0].company}</h3>
+                    <BigAvatar src={photosList?.[currentUser?.id]?.url} alt="Avatar"/>
+                    <h2>{usersList?.[0]?.name}</h2>
+                    <h3>Job title - {usersList?.[0]?.company.name}</h3>
                     <Line />
                     <div>
                         <InnerWrapper>
-                            <Icon src='.media/icons/network.png'/>
-                            <h3>Your network</h3>                           
-                            <Icon src='.media/icons/user-plus.png' />                   
+                            <InlineWrapper>
+                                <Link to="/test-site">
+                                    <Icon src="./media/icons/network.png"/>
+                                    <h3>Your network</h3>
+                                    <Icon src="./media/icons/user-plus.png" />
+                                </Link>
+                            </InlineWrapper>             
                         </InnerWrapper>
                         <InnerWrapper>
-                            <Icon src='.media/icons/publications.png' />
-                            <h3>Your publications</h3>
-                            <Icon src='.media/icons/plus.png'/>
+                            <InlineWrapper>
+                                <Link to="/test-site">
+                                    <Icon src="./media/icons/publications.png" />
+                                    <h3>Your publications</h3>
+                                    <Icon src="./media/icons/plus.png"/>
+                                </Link>
+                            </InlineWrapper>
                         </InnerWrapper>
                     </div>
                 </AsideMainContent>
-            }
-            
             <AsideSecondaryContent>              
                     <InnerWrapper>
-                        <Icon src='.media/icons/publications.png' />
-                        <h3>Publications</h3>
+                        <InlineWrapper>
+                            <Link to="test-site">
+                                <Icon src="./media/icons/publications.png" />
+                                <h3>Publications</h3>
+                            </Link>
+                        </InlineWrapper>
                     </InnerWrapper>
                     <InnerWrapper>
-                        <Icon src='.media/icons/ecosystem.png'/>
-                        <h3>Ecosystem</h3>
+                        <InlineWrapper>
+                            <Link to="/test-site">
+                                <Icon src="./media/icons/ecosystem.png"/>
+                                <h3>Ecosystem</h3>
+                            </Link>
+                        </InlineWrapper>
                     </InnerWrapper>
                     <InnerWrapper>
-                        <Icon src='.media/icons/entities.png'/>
-                        <h3>Entities</h3>
+                        <InlineWrapper>
+                            <Link to="/entities">
+                                <Icon src="./media/icons/entities.png"/>
+                                <h3>Entities</h3>
+                            </Link>
+                        </InlineWrapper>
                     </InnerWrapper>
             </AsideSecondaryContent>
         </Aside>

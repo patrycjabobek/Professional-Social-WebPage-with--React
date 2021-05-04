@@ -6,6 +6,9 @@ export const GET_USERS = "GET_USERS";
 // określić interface konkretnej akcji aby nie gubić danych
 export interface IUserTypes {
     GET_USERS: {
-        usersList: ISingleUser;
+        data: {
+            usersList: ISingleUser[];
+            currentUser: ISingleUser;
+        }
     }
 }

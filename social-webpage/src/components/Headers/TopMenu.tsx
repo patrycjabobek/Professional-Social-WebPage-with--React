@@ -9,6 +9,7 @@ import { Colors } from '../../styledHelpers/Colors';
 import { HomeDropdown } from '../Headers/HomeDropdown';
 
 
+
 const Logo = styled.img`
     width: 35px;
     height: 35px;
@@ -18,7 +19,7 @@ const Logo = styled.img`
 const Wrapper = styled.div`
     background: ${Colors.white};
     display: flex;
-    width: 100%;
+    position: relative;
     padding: 10px 20px;
     box-shadow: 0 2px 2px lightgrey;
 `;
@@ -42,20 +43,22 @@ const InnerWrapper = styled.div`
 `;
 
 const StyledSearchBar = styled.div`
-        width: 62%;
-        margin: 0 50px 0 50px;
-    & > input {
+    width: 70%;
+    margin: 0 50px 0 50px;
+    input {
         background: url('./media/icons/search.png') no-repeat scroll ;
         height: 30px;
         font-size: 15px;
         background-position: right ;
-        width: inherit;
+        width: 50%;
         border: 2px solid ${Colors.verylightgray};
         border-radius: 3px;
+
+        &::placeholder {
+            text-align: center;
+        }
     }
-    & > input::placeholder {
-        text-align: center;
-    }
+
 `;
 
 const StyledIconsBar = styled.div`
@@ -69,32 +72,34 @@ Logo.defaultProps = {
 export const TopMenu: FC = () => {
     const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
     
-    const menuHandler = () => {
-        toggleDropdown();
-    };
+
     
     return (
         <Wrapper>
             <Link to="/"><Logo /></Link>
             <StyledDropdown ref={wrapperRef}>
-               <InnerWrapper onClick={menuHandler}>
-               <Icon src="./media/icons/house.png" />
-               <h3>Home</h3>
-               <p>&#x25BC;</p>
+                <InnerWrapper onClick={toggleDropdown}>
+                    <Icon src="./media/icons/house.png" />
+                    <h3>Home</h3>
+                    <p>&#x25BC;</p>                   
+               </InnerWrapper> 
                {dropdownOpen &&
-                    <HomeDropdown />
-                }
-               </InnerWrapper>                      
+                        <HomeDropdown />
+                }                     
             </StyledDropdown>          
             <StyledSearchBar>
                 <input type="text" placeholder="Search Legalcluster" />
             </StyledSearchBar>
             <StyledIconsBar>
-            <Icon src="./media/icons/comments.png" />
-            <Link to="/">
+            <Link to="/test-site">
+                <Icon src="./media/icons/comments.png" />
+            </Link>
+            <Link to="/test-site">
                 <Icon src="./media/icons/house.png" />
             </Link>
-            <Icon src="./media/icons/bell.png" />
+            <Link to="/test-site">
+                <Icon src="./media/icons/bell.png" />
+            </Link>
             </StyledIconsBar>
         </Wrapper>
     )

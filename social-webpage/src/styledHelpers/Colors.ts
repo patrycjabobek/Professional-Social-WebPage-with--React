@@ -6,4 +6,5 @@ export const Colors = {
     mediumgray: '#ACACAC',
     elephantbone: '#F7F7F7',
     darkgrey: '#333333',
+    blue: '#1E90FF',
 }

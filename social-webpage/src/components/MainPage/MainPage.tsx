@@ -16,63 +16,101 @@ import { LatestPublications } from '../MainPage/LatestPublications';
 import { ResumeYourWork } from '../MainPage/ResumeYourWork';
 import { Workspaces } from '../MainPage/Workspaces';
 import { LeftProfile } from '../Profile/LeftProfile';
-import {Publications} from '../Publications/Publications';
+import { TestSite } from '../TestSite/TestSite';
+
+import { Corporate } from '../Corporate/Corporate';
+import { ClientContract } from '../ClientContract/ClientContract';
+import { SupplierContract } from '../SupplierContract/SupplierContract';
+import { GroupNorms } from '../GroupNorms/GroupNorms';
+import { Entities } from '../Entities/Entities';
+import { Profile } from '../Profile/Profile';
+import { RealEstateContracts } from '../RealEstateContracts/RealEstateContracts';
 
 import { getUsers } from '../../actions/actionTypes/usersActions';
 import { getPhotos } from '../../actions/actionTypes/photosActions';
-import * as actionTypes from '../../actions/actionTypes/userTypes'
-
+import { getPosts } from '../../actions/actionTypes/postsActions';
+import { getComments } from '../../actions/actionTypes/commentsActions';
 type GetUsers = ReturnType<typeof getUsers>;
 type GetPhotos = ReturnType<typeof getPhotos>;
+type GetPosts = ReturnType<typeof getPosts>;
+type GetComments = ReturnType<typeof getComments>;
 
 const Container = styled.div`
     max-width: 1400px;
+    display: flex;
+    background: ${Colors.elephantbone};
     align-items: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    display: block;
     margin: auto;
     color: ${Colors.black};
 `;
 
-const Content = styled.div``;
 
 const Main = styled.main`
     width: 80%;
     float: right;
+    place-self: flex-start;
 `;
 
+const Content = styled.div`
+  display: block;
+`;
 const MainPage: FC = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch<GetUsers>(getUsers()).then(() => {
-            dispatch<GetPhotos>(getPhotos(usersList[0].id))
+            dispatch<GetPhotos>(getPhotos())
+            .then(() => {
+                dispatch<GetPosts>(getPosts())
+                .then(() => {
+                    dispatch<GetComments>(getComments())
+                })
+            })
         });
         // eslint-disable-next-line 
     }, []);
 
     return (
         <Router>
-            <Container>
                 <TopMenu/>
+            <Container>
                 <LeftProfile/>
-                <Switch>
                     <Main>                   
-                        <Route path='/publications'>
-                            <Publications />
+                <Switch>
+                        <Route path='/test-site'>
+                            <TestSite />
+                        </Route>
+                        <Route path='/entites'>
+                            <Entities />
+                        </Route>
+                        <Route path='/client-contract'>
+                            <ClientContract />
+                        </Route>
+                        <Route path='/corporate'>
+                            <Corporate />
+                        </Route>
+                        <Route path='/supplier-contract'>
+                            <SupplierContract />
+                        </Route>
+                        <Route path='/group-norms'>
+                            <GroupNorms />
+                        </Route>
+                        <Route path='/real-estate-contracts'>
+                            <RealEstateContracts />
+                        </Route>
+                        <Route path='/profile'>
+                            <Profile />
                         </Route>
                         <Route path='/'>
-                            <Wrapper>
+                            <Content>
                                 <LatestPublications/>
                                 <ResumeYourWork/>
                                 <Workspaces/>
-                            </Wrapper>
-                            <Content>
-                            
-                            </Content>
+                            </Content>                         
                         </Route>
-                    </Main>
                 </Switch>
+                    </Main>
             </Container>
         </Router>
     );

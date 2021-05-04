@@ -5,10 +5,13 @@ import { Provider } from 'react-redux';
 import MainPage from './components/MainPage/MainPage';
 import store from './tools/store';
 
+
 ReactDOM.render(
   <Provider store={store}>
-    <Reset />
-    <MainPage />
+    <div>
+      <Reset />
+      <MainPage />
+    </div>
   </Provider>,
   document.getElementById('root')
 );
