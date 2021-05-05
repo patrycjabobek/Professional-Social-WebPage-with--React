@@ -9,22 +9,21 @@ import {useDispatch} from 'react-redux';
 
 
 import { Colors } from '../../styledHelpers/Colors';
-import { Wrapper } from '../../styledHelpers/Components';
 
 import { TopMenu } from '../Headers/TopMenu';
 import { LatestPublications } from '../MainPage/LatestPublications';
 import { ResumeYourWork } from '../MainPage/ResumeYourWork';
-import { Workspaces } from '../MainPage/Workspaces';
+import { WorkspacesSlider } from './WorkspacesSlider';
 import { LeftProfile } from '../Profile/LeftProfile';
 import { TestSite } from '../TestSite/TestSite';
 
-import { Corporate } from '../Corporate/Corporate';
-import { ClientContract } from '../ClientContract/ClientContract';
-import { SupplierContract } from '../SupplierContract/SupplierContract';
-import { GroupNorms } from '../GroupNorms/GroupNorms';
+import { Corporate } from '../Workspaces/Corporate/Corporate';
+import { ClientContract } from '../Workspaces/ClientContract/ClientContract';
+import { SupplierContract } from '../Workspaces/SupplierContract/SupplierContract';
+import { GroupNorms } from '../Workspaces/GroupNorms/GroupNorms';
 import { Entities } from '../Entities/Entities';
 import { Profile } from '../Profile/Profile';
-import { RealEstateContracts } from '../RealEstateContracts/RealEstateContracts';
+import { RealEstateContracts } from '../Workspaces/RealEstateContracts/RealEstateContracts';
 
 import { getUsers } from '../../actions/actionTypes/usersActions';
 import { getPhotos } from '../../actions/actionTypes/photosActions';
@@ -106,7 +105,7 @@ const MainPage: FC = () => {
                             <Content>
                                 <LatestPublications/>
                                 <ResumeYourWork/>
-                                <Workspaces/>
+                                <WorkspacesSlider/>
                             </Content>                         
                         </Route>
                 </Switch>

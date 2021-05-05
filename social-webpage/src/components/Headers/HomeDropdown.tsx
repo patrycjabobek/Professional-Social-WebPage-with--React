@@ -36,7 +36,6 @@ const StyledDropdown = styled.div`
         font-size: 12px;
         color: ${Colors.mediumgray};
         font-weight: bold;
-        underline: none;
     }
 
 `;
