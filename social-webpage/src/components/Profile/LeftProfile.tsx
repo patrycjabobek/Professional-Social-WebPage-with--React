@@ -8,7 +8,7 @@ import { IPhotosReducer } from '../../reducers/photosReducer';
 
 import Line from '../Common/Line';
 import Icon from '../Common/Icon';
-import { InnerWrapper, InlineWrapper } from '../../styledHelpers/Components';
+import { InnerWrapper, InlineWrapper, BigAvatar } from '../../styledHelpers/Components';
 
 
 import { Colors } from '../../styledHelpers/Colors';
@@ -35,6 +35,9 @@ const AsideMainContent = styled.div`
         color: ${Colors.darkgrey};
         padding: 5px 0;
     }
+    a{
+        text-decoration: none
+    }
 `;
 
 const AsideSecondaryContent = styled(AsideMainContent)`
@@ -46,11 +49,7 @@ const AsideSecondaryContent = styled(AsideMainContent)`
     }
 `;
 
-const BigAvatar = styled.img`
-    width: 60px;
-    height: auto;
-    border-radius: 50%;
-`;
+
 
 export const LeftProfile: FC = () => {
     const { usersList, photosList, currentUser } = useSelector<IState, IUsersReducer & IPhotosReducer>(globalState => ({
@@ -61,9 +60,11 @@ export const LeftProfile: FC = () => {
     return (
         <Aside>
                 <AsideMainContent>
-                    <BigAvatar src={photosList?.[currentUser?.id]?.url} alt="Avatar"/>
-                    <h2>{usersList?.[0]?.name}</h2>
-                    <h3>Job title - {usersList?.[0]?.company.name}</h3>
+                    <Link to="/profile">
+                        <BigAvatar src={photosList?.[currentUser?.id]?.url} alt="Avatar"/>
+                        <h2>{usersList?.[currentUser?.id]?.name}</h2>
+                        <h3>Job title - {usersList?.[currentUser?.id]?.company.name}</h3>
+                    </Link>
                     <Line />
                     <div>
                         <InnerWrapper>

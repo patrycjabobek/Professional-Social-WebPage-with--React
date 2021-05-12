@@ -104,8 +104,8 @@ const MainPage: FC = () => {
                         <Route path='/'>
                             <Content>
                                 <LatestPublications/>
-                                <ResumeYourWork/>
                                 <WorkspacesSlider/>
+                                <ResumeYourWork/>
                             </Content>                         
                         </Route>
                 </Switch>

@@ -203,15 +203,15 @@ export const WorkspacesSlider: FC = () => {
 
     const settings = {
     dots: false,
-    infinitive: true,
-    speed: 500,
-    swipeToSlide: true
+    initialSlide: -1,
+    speed: 200,
+    slidesToShow: 3,
     }
 
     const workspaceElement =  workspaces.map((workspace, index) =>
     <BlockContainer>
-        <StyledLink to={workspace.url}>
             <BigImage src={workspace.bgImage} alt=""></BigImage>
+        <StyledLink to={workspace.url}>
             <Content>
                 <StyledTitle>{workspace.title}</StyledTitle>
                 <IconContainer>

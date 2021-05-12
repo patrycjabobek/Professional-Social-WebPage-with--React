@@ -8,7 +8,7 @@ const StyledImage = styled.img`
 `;
 
 const Icon = (props: any) => (
-    <StyledImage  src={props.src} alt="" />
+    <StyledImage src={props.src} alt="" />
 );
 
 export default Icon;

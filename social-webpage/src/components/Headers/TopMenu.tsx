@@ -43,7 +43,7 @@ const InnerWrapper = styled.div`
 `;
 
 const StyledSearchBar = styled.div`
-    width: 70%;
+    width: 67%;
     margin: 0 50px 0 50px;
     input {
         background: url('./media/icons/search.png') no-repeat scroll ;
@@ -59,10 +59,45 @@ const StyledSearchBar = styled.div`
         }
     }
 
+
 `;
 
 const StyledIconsBar = styled.div`
     justify-content: flex-end;
+    position: relative;
+    .badge1 {
+        text-decoration: none;
+        position: absolute;
+        top: -7px;
+        right: 35px;
+        font-size: smaller;
+        padding: 2px 6px;
+        border-radius: 50%;
+        background: ${Colors.blue};
+        color: white;
+    }
+
+    .badge2{
+        text-decoration: none;
+        position: absolute;
+        top: -7px;
+        right: -5px;
+        font-size: smaller;
+        padding: 2px 6px;
+        border-radius: 50%;
+        background: ${Colors.blue};
+        color: white;
+    }
+`;
+
+const RoundIcon =  styled.img`
+    padding: 5px;
+    margin: 0 4px;
+    width: 20px;
+    height: 20px;
+    background: ${Colors.verylightgray};
+    border-radius: 50% ;
+
 `;
 
 Logo.defaultProps = {
@@ -95,10 +130,12 @@ export const TopMenu: FC = () => {
                 <Icon src="./media/icons/comments.png" />
             </Link>
             <Link to="/test-site">
-                <Icon src="./media/icons/house.png" />
+                <RoundIcon src="./media/icons/house.png"/>
+                <span className="badge1">3</span>
             </Link>
             <Link to="/test-site">
-                <Icon src="./media/icons/bell.png" />
+                <RoundIcon src="./media/icons/bell.png"/>
+                <span className="badge2">3</span>
             </Link>
             </StyledIconsBar>
         </Wrapper>

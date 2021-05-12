@@ -44,7 +44,11 @@ export const ImageContainer = styled.img`
 export const Title = styled.h1`
     font-size: 20px;
     font-weight: bolder;
-    padding: 10px
+    padding: 10px;
+`;
+
+export const SubTitle = styled.h2`
+    color: ${Colors.mediumgray};
 `;
 
 export const Text = styled.h2`
@@ -52,4 +56,10 @@ export const Text = styled.h2`
     color: ${Colors.blue};
     font-size: 17px;
     font-weight: bolder;
+`;
+
+export const BigAvatar = styled.img`
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
 `;

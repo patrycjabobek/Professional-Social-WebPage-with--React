@@ -56,6 +56,9 @@ const FilterContainer = styled.div`
 
 const CenterInnerWrapper = styled(InnerWrapper)`
 justify-content: center;
+    a{
+        text-decoration: none
+    }
     `;
 
 export const HomeDropdown: FC = () => {
@@ -147,8 +150,8 @@ export const HomeDropdown: FC = () => {
                 <InnerWrapper>
                     <RoundAvatar src={photosList?.[currentUser?.id]?.url}/>
                     <Styledlist>
-                        <h3>{usersList?.[0]?.name}</h3>
-                        <a href="/">See profile</a>
+                        <h3>{usersList?.[currentUser?.id]?.name}</h3>
+                        <Link to="/profile">See profile</Link>
                     </Styledlist>
                     
                 </InnerWrapper>
