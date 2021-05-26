@@ -1,18 +1,27 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import { useTable } from 'react-table';
 
+import {TableProposals} from '../Table/TableProposals';
+import Line from '../Common/Line';
 import Icon from '../Common/Icon';
-import {Wrapper, BigAvatar, BlockContainer, SubTitle, Title} from '../../styledHelpers/Components';
+import {BlockContainer, MainTitle} from '../../styledHelpers/Components';
 
-import {Table} from '../Static/Table';
+interface IProps {
+    isEditable?: boolean
+}
 
-export const Proposals: FC = () => {
+export const Proposals: FC<IProps> = (props) => {
+
+
     return (
         <BlockContainer>
-            {/* tabele: input type text plus date picker ; reszta input type text*/}
-            <Table/>
+            <MainTitle>Proposals</MainTitle>
+            
+            <TableProposals isEditable={props.isEditable}></TableProposals>
             <Link to="/test-site">See more proposals</Link>
+            <Line/>
         </BlockContainer>
     )
 }

@@ -2,13 +2,19 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
+import {TableFees} from '../Table/TableFees';
 import Icon from '../Common/Icon';
-import {Wrapper, BigAvatar, BlockContainer, SubTitle, Title} from '../../styledHelpers/Components';
+import {BlockContainer, MainTitle} from '../../styledHelpers/Components';
 
-export const Fees: FC = () => {
+interface IProps {
+    isEditable?: boolean
+}
+
+export const Fees: FC<IProps> = (props) => {
     return (
         <BlockContainer>
-            <h1>Amount of fees</h1>
+            <MainTitle>Amount of fees</MainTitle>
+            <TableFees isEditable={props.isEditable}></TableFees>
         </BlockContainer>
     )
 }

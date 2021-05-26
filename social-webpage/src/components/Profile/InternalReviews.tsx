@@ -2,13 +2,22 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
+import {TableReviews} from '../Table/TableReviews';
+import Line from '../Common/Line';
 import Icon from '../Common/Icon';
-import {Wrapper, BigAvatar, BlockContainer, SubTitle, Title} from '../../styledHelpers/Components';
+import {BlockContainer, MainTitle} from '../../styledHelpers/Components';
 
-export const InternalReviews: FC = () => {
+interface IProps {
+    isEditable?: boolean
+}
+
+export const InternalReviews: FC<IProps> = (props) => {
     return (
         <BlockContainer>
-            <h1>Internal Reviews</h1>
+            <MainTitle>Internal Reviews</MainTitle>
+            <TableReviews isEditable={props.isEditable}></TableReviews>
+
+            <Line/>
         </BlockContainer>
     )
 }

@@ -49,6 +49,10 @@ const Main = styled.main`
     width: 80%;
     float: right;
     place-self: flex-start;
+
+    input {
+        width: max-content;
+    }
 `;
 
 const Content = styled.div`

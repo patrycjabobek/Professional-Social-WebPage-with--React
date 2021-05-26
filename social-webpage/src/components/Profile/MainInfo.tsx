@@ -1,12 +1,18 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux'; // wyciąga nam dane z reducerów
+
 import { Link } from "react-router-dom";
+import { IState } from '../../reducers';
+import { IUsersReducer } from '../../reducers/usersReducer';
+import { IPhotosReducer } from '../../reducers/photosReducer';
+
 
 import { Colors } from '../../styledHelpers/Colors';
 import Icon from '../Common/Icon';
 import Line from '../Common/Line';
 import {Wrapper, BigAvatar, BlockContainer} from '../../styledHelpers/Components';
-import  {ProfileTopOptions} from '../Static/ProfileTopOptions'
+import  {ProfileTopOptions} from './ProfileTopOptions'
 
 
 const ClearBothWrapper = styled(Wrapper)`
@@ -58,8 +64,14 @@ interface IUserInfo {
     url: string
 }
 
+// przynajmniej jeden klasowy komponent
+
 export const MainInfo: FC<IUserInfo> = (props) => {
     const [isEditable, edit] = useState(false);
+    const { usersList, photosList, currentUser } = useSelector<IState, IUsersReducer & IPhotosReducer>(globalState => ({
+        ...globalState.users,
+        ...globalState.photos
+    })); 
 
     const [userData, setUserData] = useState({
         name: props?.name,

@@ -21,6 +21,11 @@ const StyledBlockContainer = styled(BlockContainer)`
 `;
 
 const EditContainer = styled.div`
+    padding-bottom: 50px;
+    h3 {
+        text-overflow: ellipsis;
+    overflow: hidden; 
+    }
 `;
 const StyledButton = styled.button`
     border: none;
@@ -59,11 +64,11 @@ export const Profile: FC = () => {
                     <Icon src="./media/icons/pen-solid.svg"/>
                 </StyledButton>
                 <ClearBoth>
-                    <MoreInformation/>
-                    <PanelInformation/>
-                    <Proposals/>
-                    <InternalReviews/>
-                    <Fees/>
+                    <MoreInformation isEditable={isEditable}/>
+                    <PanelInformation isEditable={isEditable}/>
+                    <Proposals isEditable={isEditable}/>
+                    <InternalReviews isEditable={isEditable}/>
+                    <Fees isEditable={isEditable}/>
                 </ClearBoth>
             </EditContainer>
         </StyledBlockContainer>
