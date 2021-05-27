@@ -20,7 +20,9 @@ const TableRow = styled.div`
     }
 `;
 const TableColumn = styled.h3`
-    width: 140px;
+    width: 130px;
+    padding: 5px;
+    font-size: 18px;
 `;
 interface IProps {
     isEditable?: boolean
@@ -51,8 +53,7 @@ export const TableFees: FC<IProps> = (props) => {
                 <TableHeader>Total Amount</TableHeader>
                 <TableHeader>Law Firm</TableHeader>
             </Header>
-            <Line/>
-            
+
             <Data>
                     {!props.isEditable 
                         ?
@@ -75,8 +76,8 @@ export const TableFees: FC<IProps> = (props) => {
                         ?
                             (<TableRow>
                                 <TableColumn>{data.year1}</TableColumn>
-                                <TableColumn>{data.costCenter}</TableColumn>
-                                <TableColumn>{data.totalAmount2}</TableColumn>
+                                <TableColumn>{data.costCenter1}</TableColumn>
+                                <TableColumn>{data.totalAmount1}</TableColumn>
                                 <TableColumn>{data.lawFirm1}</TableColumn>
                             </TableRow>)
                         :   (<TableRow>

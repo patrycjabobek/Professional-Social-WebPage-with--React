@@ -26,6 +26,12 @@ export const Flex = styled.div`
     display: flex;
 `;
 
+export const FlexContainer = styled.div`
+    display: flex;
+    background: ${Colors.verylightgray};
+    margin: 5px 0;
+`;
+
 
 export const InlineWrapper = styled(InnerWrapper)`
     h3 {

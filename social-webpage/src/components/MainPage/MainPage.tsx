@@ -84,9 +84,7 @@ const MainPage: FC = () => {
                         <Route path='/test-site'>
                             <TestSite />
                         </Route>
-                        <Route path='/entites'>
-                            <Entities />
-                        </Route>
+                        
                         <Route path='/client-contract'>
                             <ClientContract />
                         </Route>
@@ -101,6 +99,9 @@ const MainPage: FC = () => {
                         </Route>
                         <Route path='/real-estate-contracts'>
                             <RealEstateContracts />
+                        </Route>
+                        <Route path='/entities'>
+                            <Entities />
                         </Route>
                         <Route path='/profile'>
                             <Profile />

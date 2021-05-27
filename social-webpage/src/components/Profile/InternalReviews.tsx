@@ -4,9 +4,18 @@ import { Link } from "react-router-dom";
 
 import {TableReviews} from '../Table/TableReviews';
 import Line from '../Common/Line';
-import Icon from '../Common/Icon';
-import {BlockContainer, MainTitle} from '../../styledHelpers/Components';
+import {BlockContainer, MainTitle, StyledHeader} from '../../styledHelpers/Components';
+import { Colors } from '../../styledHelpers/Colors';
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+`;
+
+const StyledText = styled.h2`
+    font-size: 20px;
+    padding: 10px 0;
+    color: ${Colors.darkBlue}
+`;
 interface IProps {
     isEditable?: boolean
 }
@@ -16,6 +25,7 @@ export const InternalReviews: FC<IProps> = (props) => {
         <BlockContainer>
             <MainTitle>Internal Reviews</MainTitle>
             <TableReviews isEditable={props.isEditable}></TableReviews>
+            <StyledLink to="/test-site"><StyledText>See more Reviews</StyledText></StyledLink>
 
             <Line/>
         </BlockContainer>

@@ -1,22 +1,50 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { IState } from './../../reducers';
+import { IPhotosReducer } from './../../reducers/photosReducer';
+import { IUsersReducer } from './../../reducers/usersReducer';
 
 import Line from '../Common/Line';
 import Icon from '../Common/Icon';
-import {Wrapper, BigAvatar, BlockContainer, SubTitle, MainTitle, StyledHeader, StyledFile} from '../../styledHelpers/Components';
+import RoundAvatar from '../Common/RoundAvatar';
+import {Wrapper, BigAvatar, BlockContainer, SubTitle, MainTitle, StyledHeader, StyledFile, FlexContainer} from '../../styledHelpers/Components';
+
+const StyledDiv = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: -600px;
+
+`;
 
 interface IProps {
-    isEditable?: boolean
+    isEditable?: boolean,
+    //userId: string
 }
 export const PanelInformation: FC<IProps> = (props) => {
+    const { usersList, photosList } = useSelector<IState, IUsersReducer & IPhotosReducer>(globalState =>({
+        ...globalState.users,
+        ...globalState.photos
+    }));
+
     const [info, setInfo] = useState({
         fee: '610$/hour (Negociated)',
         terms: 'Monthly 10k$ retainer = see with Jeanny Smith',
         file: 'Attachment_lorem-ipsum23232.jpg',
         services: 'Corporate M&A and international acquisitions',
-        // intCorr: String
+        user1: {
+            id: 1,
+            name: 'Leane Graham'
+        },
+        user2: {
+            id: 2,
+            name: 'Ervin Howell'
+        }
     })
+
+    const changeUser1 = (data: any) => setInfo({...info, user1: data});
+    const changeUser2 = (data: any) => setInfo({...info, user2: data});
     return (
         <BlockContainer>
             <MainTitle>Panel Information</MainTitle>
@@ -53,10 +81,58 @@ export const PanelInformation: FC<IProps> = (props) => {
             </div>
             <div>
                 <MainTitle>Internal correspondants</MainTitle>
-                {/* {props.isEditable
-                    ? (<StyledHeader>610$/hour (Negociated)</StyledHeader>)
-                    : <input type="text" onChange={ev => setInfo({...info, intCorr: ev.target.value})}/>
-                } */}
+                {!props.isEditable
+                    ? (
+                            <div>
+                                <FlexContainer>
+                                    <RoundAvatar src={photosList?.filter(el => el?.id === 1)[0]?.url} alt=""/>
+                                    <StyledDiv>
+                                        <StyledHeader>{usersList?.filter(el => el.id === 1)[0]?.name}</StyledHeader>
+                                        <Icon src="./media/icons/comment-regular.svg"/>
+                                        <h3>Message</h3>
+                                        <Icon src="./media/icons/user-solid.svg"/>
+                                        <h3>Profile</h3>
+                                    </StyledDiv>
+                                </FlexContainer>
+                            </div>
+                    )
+                    : (
+                        <div>
+                            {/* <select 
+                                value={info?.user1}
+                                onChange={changeUser1}
+                                options={usersList?.map(el => ({value:`${el.id}`, label:`${el.name}`}))}
+                            /> */}
+
+                        </div>
+                    )
+                }
+                {!props.isEditable
+                    ? (
+                            <div>
+                                <FlexContainer>
+                                    <RoundAvatar src={photosList?.filter(el => el?.id === 2)[0]?.url} alt=""/>
+                                    <StyledDiv>
+                                        <StyledHeader>{usersList?.filter(el => el.id === 2)[0]?.name}</StyledHeader>
+                                        <Icon src="./media/icons/comment-regular.svg"/>
+                                        <h3>Message</h3>
+                                        <Icon src="./media/icons/user-solid.svg"/>
+                                        <h3>Profile</h3>
+                                    </StyledDiv>
+                                </FlexContainer>
+                            </div>
+                    )
+                    : (
+                        <div>
+                            {/* <select 
+                                value={info?.user2}
+                                onChange={changeUser2}
+                                options={usersList?.map(el => ({value:`${el.id}`, label:`${el.name}`}))}
+                            /> */}
+
+                        </div>
+                    )
+                }
             </div>
             <Line/>
         </BlockContainer>

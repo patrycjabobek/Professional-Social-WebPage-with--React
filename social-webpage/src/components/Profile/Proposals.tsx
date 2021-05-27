@@ -5,9 +5,20 @@ import { useTable } from 'react-table';
 
 import {TableProposals} from '../Table/TableProposals';
 import Line from '../Common/Line';
-import Icon from '../Common/Icon';
 import {BlockContainer, MainTitle} from '../../styledHelpers/Components';
+import { Colors } from '../../styledHelpers/Colors';
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    
+`;
+
+const StyledText = styled.h2`
+    font-size: 18px;
+    margin-left: 75%;
+    color: ${Colors.blue};
+    padding-bottom: 10px;
+`;
 interface IProps {
     isEditable?: boolean
 }
@@ -20,7 +31,7 @@ export const Proposals: FC<IProps> = (props) => {
             <MainTitle>Proposals</MainTitle>
             
             <TableProposals isEditable={props.isEditable}></TableProposals>
-            <Link to="/test-site">See more proposals</Link>
+            <StyledLink to="/test-site">See more proposals</StyledLink>
             <Line/>
         </BlockContainer>
     )

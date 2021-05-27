@@ -16,7 +16,8 @@ const TableRow = styled.div`
     display:flex;
 `;
 const TableColumn = styled.h3`
-    width: 120px;
+    width: 110px;
+    padding: 5px;
 `;
 interface IProps {
     isEditable?: boolean
@@ -67,7 +68,7 @@ export const TableReviews: FC<IProps> = (props) => {
                                 <input type="text" value={data?.entity1} onChange={ev => setData({...data, entity1: ev.target.value})}/>
                                 <input type="text" value={data?.location1} onChange={ev => setData({...data, location1: ev.target.value})}/>
                                 <input type="text" value={data?.expertise1} onChange={ev => setData({...data, expertise1: ev.target.value})}/>
-                                <input type="text" value={data?.date1} onChange={ev => setData({...data, date1: ev.target.value})}/>
+                                <input type="date" value={data?.date1} onChange={ev => setData({...data, date1: ev.target.value})}/>
 
                         </TableRow>)
                     }
@@ -85,7 +86,7 @@ export const TableReviews: FC<IProps> = (props) => {
                                 <input type="text" value={data?.entity2} onChange={ev => setData({...data, entity2: ev.target.value})}/>
                                 <input type="text" value={data?.location2} onChange={ev => setData({...data, location2: ev.target.value})}/>
                                 <input type="text" value={data?.expertise2} onChange={ev => setData({...data, expertise2: ev.target.value})}/>
-                                <input type="text" value={data?.date2} onChange={ev => setData({...data, date2: ev.target.value})}/>
+                                <input type="date" value={data?.date2} onChange={ev => setData({...data, date2: ev.target.value})}/>
                         </TableRow>)
                     }
                     {!props.isEditable 
@@ -102,7 +103,7 @@ export const TableReviews: FC<IProps> = (props) => {
                                 <input type="text" value={data?.entity3} onChange={ev => setData({...data, entity3: ev.target.value})}/>
                                 <input type="text" value={data?.location3} onChange={ev => setData({...data, location3: ev.target.value})}/>
                                 <input type="text" value={data?.expertise3} onChange={ev => setData({...data, expertise3: ev.target.value})}/>
-                                <input type="text" value={data?.date3} onChange={ev => setData({...data, date3: ev.target.value})}/>
+                                <input type="date" value={data?.date3} onChange={ev => setData({...data, date3: ev.target.value})}/>
                         </TableRow>)
                     }
             </Data>
