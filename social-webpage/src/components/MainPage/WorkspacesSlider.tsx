@@ -160,49 +160,49 @@ export const WorkspacesSlider: FC = () => {
             url: "/real-estate-contract"
         },
         {
-            title: "Client Contract",
+            title: "Specialist Contract",
             bgImage: "./media/images/contract.jpg",
             iconUrl: "./media/icons/file-signature-solid.svg",
             category: "Contract",
-            users: 150,
-            url: "/client-contract"
+            users: 120,
+            url: "/specialistt-contract"
         },
         {
-            title: "Supplier Contract",
+            title: "Patient Contract",
             bgImage: "./media/images/contract.jpg",
             iconUrl: "./media/icons/file-signature-solid.svg",
             category: "Contract",
-            users: 25,
-            url: "/supplier-contract"
+            users: 85,
+            url: "/patient-contract"
         },
         {
-            title: "Corporate",
+            title: "Appointment",
             bgImage: "./media/images/biuro.jpg",
             iconUrl: "./media/icons/entities.png",
-            category: "Corporate",
+            category: "Appointment",
             users: 25,
-            url: "/corporate"
+            url: "/appointment"
         },
         {
-            title: "Group Norms",
+            title: "Classes",
             bgImage: "./media/images/norms.jpg",
             iconUrl: "./media/icons/entities.png",
-            category: "Norms",
+            category: "College",
             users: 25,
-            url: "/group-norms"
+            url: "/classes"
         },
         {
-            title: "Real Estate Contract",
+            title: "Business Contract",
             bgImage: "./media/images/real-estate.jpg",
             iconUrl: "./media/icons/entities.png",
             category: "Contract",
             users: 50,
-            url: "/real-estate-contract"
+            url: "/business-contract"
         },
     ]
 
     const settings = {
-    dots: false,
+    dots: true,
     initialSlide: -1,
     speed: 200,
     slidesToShow: 3,

@@ -12,7 +12,7 @@ import { Colors } from '../../styledHelpers/Colors';
 
 import { TopMenu } from '../Headers/TopMenu';
 import { LatestPublications } from '../MainPage/LatestPublications';
-import { ResumeYourWork } from '../MainPage/ResumeYourWork';
+import { ResumeYourWork } from './ResumeYourWork/ResumeYourWork';
 import { WorkspacesSlider } from './WorkspacesSlider';
 import { LeftProfile } from '../Profile/LeftProfile';
 import { TestSite } from '../TestSite/TestSite';
