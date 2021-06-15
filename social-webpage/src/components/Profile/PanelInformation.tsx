@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { IState } from './../../reducers';
 import { IPhotosReducer } from './../../reducers/photosReducer';
@@ -9,7 +8,7 @@ import { IUsersReducer } from './../../reducers/usersReducer';
 import Line from '../Common/Line';
 import Icon from '../Common/Icon';
 import RoundAvatar from '../Common/RoundAvatar';
-import {Wrapper, BigAvatar, BlockContainer, SubTitle, MainTitle, StyledHeader, StyledFile, FlexContainer} from '../../styledHelpers/Components';
+import {BlockContainer, SubTitle, MainTitle, StyledHeader, StyledFile, FlexContainer} from '../../styledHelpers/Components';
 
 const StyledDiv = styled.div`
     display: flex;

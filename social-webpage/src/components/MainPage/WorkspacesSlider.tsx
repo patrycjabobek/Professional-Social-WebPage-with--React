@@ -3,10 +3,13 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+
+import {workspaces} from '../../workspaces';
 import { Link } from 'react-router-dom';
 import { Wrapper, Title, BlockContainer, } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
-import Icon from '../Common/Icon';
+
+
 const SliderContainer = styled(Wrapper)`
     width: 100%;
     display: block;
@@ -118,88 +121,6 @@ const Dot = styled.img`
     margin: 5px 10px;
 `;
 export const WorkspacesSlider: FC = () => {
-    const workspaces = [
-        {
-            title: "Client Contract",
-            bgImage: "./media/images/contract.jpg",
-            iconUrl: "./media/icons/file-signature-solid.svg",
-            category: "Contract",
-            users: 150,
-            url: "/client-contract"
-        },
-        {
-            title: "Supplier Contract",
-            bgImage: "./media/images/contract.jpg",
-            iconUrl: "./media/icons/file-signature-solid.svg",
-            category: "Contract",
-            users: 25,
-            url: "/supplier-contract"
-        },
-        {
-            title: "Corporate",
-            bgImage: "./media/images/biuro.jpg",
-            iconUrl: "./media/icons/entities.png",
-            category: "Corporate",
-            users: 25,
-            url: "/corporate"
-        },
-        {
-            title: "Group Norms",
-            bgImage: "./media/images/norms.jpg",
-            iconUrl: "./media/icons/entities.png",
-            category: "Norms",
-            users: 25,
-            url: "/group-norms"
-        },
-        {
-            title: "Real Estate Contract",
-            bgImage: "./media/images/real-estate.jpg",
-            iconUrl: "./media/icons/entities.png",
-            category: "Contract",
-            users: 50,
-            url: "/real-estate-contract"
-        },
-        {
-            title: "Specialist Contract",
-            bgImage: "./media/images/contract.jpg",
-            iconUrl: "./media/icons/file-signature-solid.svg",
-            category: "Contract",
-            users: 120,
-            url: "/specialistt-contract"
-        },
-        {
-            title: "Patient Contract",
-            bgImage: "./media/images/contract.jpg",
-            iconUrl: "./media/icons/file-signature-solid.svg",
-            category: "Contract",
-            users: 85,
-            url: "/patient-contract"
-        },
-        {
-            title: "Appointment",
-            bgImage: "./media/images/biuro.jpg",
-            iconUrl: "./media/icons/entities.png",
-            category: "Appointment",
-            users: 25,
-            url: "/appointment"
-        },
-        {
-            title: "Classes",
-            bgImage: "./media/images/norms.jpg",
-            iconUrl: "./media/icons/entities.png",
-            category: "College",
-            users: 25,
-            url: "/classes"
-        },
-        {
-            title: "Business Contract",
-            bgImage: "./media/images/real-estate.jpg",
-            iconUrl: "./media/icons/entities.png",
-            category: "Contract",
-            users: 50,
-            url: "/business-contract"
-        },
-    ]
 
     const settings = {
     dots: true,
@@ -209,24 +130,25 @@ export const WorkspacesSlider: FC = () => {
     }
 
     const workspaceElement =  workspaces.map((workspace, index) =>
-    <BlockContainer>
-            <BigImage src={workspace.bgImage} alt=""></BigImage>
-        <StyledLink to={workspace.url}>
-            <Content>
-                <StyledTitle>{workspace.title}</StyledTitle>
-                <IconContainer>
-                    <StyledBigIcon src={workspace.iconUrl} alt=""/>
-                </IconContainer>
-                <InfoFeild>
-                    <StyledSmallIcon src={workspace.iconUrl} />
-                    <h3>{workspace.category}</h3>
-                    <Dot src="./media/icons/black-circle.png" alt=""/>
-                    <h3>Users {workspace.users}</h3>
-                </InfoFeild>
-                <h5>Last update 2 days ago</h5>
-            </Content>
-        </StyledLink>
-    </BlockContainer>)
+        <BlockContainer>
+                <BigImage src={workspace.bgImage} alt=""></BigImage>
+            <StyledLink to={'/workspaces/' + workspace.url}>
+                <Content>
+                    <StyledTitle>{workspace.title}</StyledTitle>
+                    <IconContainer>
+                        <StyledBigIcon src={workspace.iconUrl} alt=""/>
+                    </IconContainer>
+                    <InfoFeild>
+                        <StyledSmallIcon src={workspace.iconUrl} />
+                        <h3>{workspace.category}</h3>
+                        <Dot src="./media/icons/black-circle.png" alt=""/>
+                        <h3>Users {workspace.users}</h3>
+                    </InfoFeild>
+                    <h5>Last update 2 days ago</h5>
+                </Content>
+            </StyledLink>
+        </BlockContainer>
+    )
 
     return (
         <SliderContainer>

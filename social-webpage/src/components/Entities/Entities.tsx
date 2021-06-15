@@ -1,4 +1,4 @@
-import React, { FC, useState, ChangeEvent, useCallback } from 'react';
+import React, { FC, useState, ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux'; 
 import { IState } from '../../reducers';
@@ -7,9 +7,8 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 import { Colors } from '../../styledHelpers/Colors';
 import Icon from '../Common/Icon';
-import {Wrapper, InnerWrapper, BlockContainer, Title} from '../../styledHelpers/Components';
+import {Wrapper, InnerWrapper,  Title} from '../../styledHelpers/Components';
 import EntitesFilter from './EntitiesFilter';
-import { Proposals } from '../Profile/Proposals';
 import EntityElement from './EntityElement';
 import './entities.css';
 
@@ -94,7 +93,7 @@ export const Entities: FC = (props) => {
 
     
     const sortEntites = () => {
-        if (isSorted == false) {
+        if (isSorted === false) {
             setSort(true);
             return filteredEntities.sort((photo1, photo2) =>
             photo2.title.localeCompare(photo1.title)

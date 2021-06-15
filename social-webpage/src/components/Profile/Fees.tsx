@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
-import { Link } from "react-router-dom";
+
 
 import {TableFees} from '../Table/TableFees';
-import Icon from '../Common/Icon';
 import {BlockContainer, MainTitle} from '../../styledHelpers/Components';
 
 interface IProps {

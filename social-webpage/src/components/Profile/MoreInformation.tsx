@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import {Colors} from '../../styledHelpers/Colors';
 import Line from '../Common/Line';
-import {Wrapper, BigAvatar, BlockContainer, SubTitle, Flex} from '../../styledHelpers/Components';
+import {BlockContainer, SubTitle, Flex} from '../../styledHelpers/Components';
 
 const HighlightedData = styled.h3`
     margin: 10px;

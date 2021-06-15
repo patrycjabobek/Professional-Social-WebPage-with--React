@@ -1,7 +1,6 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
-import { useTable } from 'react-table';
 
 import {TableProposals} from '../Table/TableProposals';
 import Line from '../Common/Line';

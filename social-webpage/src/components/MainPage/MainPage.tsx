@@ -16,14 +16,10 @@ import { ResumeYourWork } from './ResumeYourWork/ResumeYourWork';
 import { WorkspacesSlider } from './WorkspacesSlider';
 import { LeftProfile } from '../Profile/LeftProfile';
 import { TestSite } from '../TestSite/TestSite';
+import { Workspaces } from '../Workspaces/Workspaces';
 
-import { Corporate } from '../Workspaces/Corporate/Corporate';
-import { ClientContract } from '../Workspaces/ClientContract/ClientContract';
-import { SupplierContract } from '../Workspaces/SupplierContract/SupplierContract';
-import { GroupNorms } from '../Workspaces/GroupNorms/GroupNorms';
 import { Entities } from '../Entities/Entities';
 import { Profile } from '../Profile/Profile';
-import { RealEstateContracts } from '../Workspaces/RealEstateContracts/RealEstateContracts';
 
 import { getUsers } from '../../actions/actionTypes/usersActions';
 import { getPhotos } from '../../actions/actionTypes/photosActions';
@@ -85,21 +81,11 @@ const MainPage: FC = () => {
                             <TestSite />
                         </Route>
                         
-                        <Route path='/client-contract'>
-                            <ClientContract />
-                        </Route>
-                        <Route path='/corporate'>
-                            <Corporate />
-                        </Route>
-                        <Route path='/supplier-contract'>
-                            <SupplierContract />
-                        </Route>
-                        <Route path='/group-norms'>
-                            <GroupNorms />
-                        </Route>
-                        <Route path='/real-estate-contracts'>
-                            <RealEstateContracts />
-                        </Route>
+                        <Route key='client-contract'
+                            exact path='/workspaces/:param'
+                            component={Workspaces}
+                        />
+
                         <Route path='/entities'>
                             <Entities />
                         </Route>

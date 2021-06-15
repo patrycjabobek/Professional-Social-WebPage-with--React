@@ -1,5 +1,4 @@
-  import React, { useState, useEffect, ChangeEvent, FC } from "react";
-import ReactPaginate from "react-paginate";
+  import React, { FC } from "react";
 import styled from "styled-components";
 import { useSelector } from 'react-redux';
 import { IState } from '../../../reducers';

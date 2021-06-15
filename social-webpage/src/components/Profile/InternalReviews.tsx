@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import {TableReviews} from '../Table/TableReviews';
 import Line from '../Common/Line';
-import {BlockContainer, MainTitle, StyledHeader} from '../../styledHelpers/Components';
+import {BlockContainer, MainTitle} from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 
 const StyledLink = styled(Link)`

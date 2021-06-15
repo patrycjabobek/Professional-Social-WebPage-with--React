@@ -1,10 +1,7 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
 
-import Line from '../Common/Line';
-import Icon from '../Common/Icon';
-import {Wrapper, BigAvatar, StyledBlockContainer, SubTitle, TableHeader} from '../../styledHelpers/Components';
+import {StyledBlockContainer, TableHeader} from '../../styledHelpers/Components';
 
 const Header = styled.div`
     display: flex;

@@ -6,7 +6,7 @@ import { IUsersReducer } from '../../reducers/usersReducer';
 import { IPhotosReducer } from '../../reducers/photosReducer';
 
 import Icon from '../Common/Icon';
-import {Wrapper, BlockContainer} from '../../styledHelpers/Components';
+import {BlockContainer} from '../../styledHelpers/Components';
 import  {MainInfo} from '../Profile/MainInfo';
 import  { MoreInformation } from '../Profile/MoreInformation';
 import  { PanelInformation } from '../Profile/PanelInformation';
@@ -50,15 +50,7 @@ export const Profile: FC = () => {
 
     return (
         <StyledBlockContainer>
-            <MainInfo 
-                name= {usersList?.[currentUser?.id]?.name}
-                city = {usersList?.[currentUser?.id]?.address?.city}
-                company = {usersList?.[currentUser?.id]?.company?.name}
-                email = {usersList?.[currentUser?.id]?.email}
-                phone = {usersList?.[currentUser?.id]?.phone}
-                phrase = {usersList?.[currentUser?.id]?.company.catchPhrase}
-                url = {photosList?.[currentUser?.id]?.url}
-            />
+            <MainInfo />
             <EditContainer>
                 <StyledButton onClick={() => { return edit(!isEditable)}}>
                     <Icon src="./media/icons/pen-solid.svg"/>
