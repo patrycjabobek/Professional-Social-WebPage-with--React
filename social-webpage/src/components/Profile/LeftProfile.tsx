@@ -10,7 +10,6 @@ import Line from '../Common/Line';
 import Icon from '../Common/Icon';
 import { InnerWrapper, InlineWrapper, BigAvatar } from '../../styledHelpers/Components';
 
-
 import { Colors } from '../../styledHelpers/Colors';
 
 const Aside = styled.div`

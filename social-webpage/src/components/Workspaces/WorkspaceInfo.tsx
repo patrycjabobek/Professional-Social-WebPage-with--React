@@ -21,8 +21,7 @@ const Container = styled.div`
 `;
 
 const StyledIcon = styled(Icon)`
-    
-   
+
 `;
 const Box = styled.div`
     div {
@@ -46,7 +45,6 @@ const Box = styled.div`
 
 interface IWorkspace {
     icon: string,
-
     workspaceName: string
 }
 const WorkspacesInfo: FC<IWorkspace> = (props) => {

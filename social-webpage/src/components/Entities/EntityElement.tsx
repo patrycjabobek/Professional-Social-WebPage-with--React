@@ -32,9 +32,6 @@ interface IEntity {
     url: string;
     title: string;
 }
-
-
-
 const EntityElement: FC<IEntity> = (props) => {
 
 
