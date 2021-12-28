@@ -1,8 +1,8 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import Icon from '../Common/Icon';
-import {Wrapper, InnerWrapper, BlockContainer, Title} from '../../styledHelpers/Components';
+import {Wrapper, InnerWrapper} from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 
 const StyledDiv = styled.div`

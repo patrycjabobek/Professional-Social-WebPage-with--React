@@ -107,7 +107,7 @@ export const Entities: FC = (props) => {
     }
 
 
-    let titles = [
+    /* let titles = [
         'ABC generic company 1',
         'ABC generic company 2',
         'ABC generic company 3',
@@ -140,7 +140,7 @@ export const Entities: FC = (props) => {
         'Subsid Corp Ltd 8',
         'Subsid Corp Ltd 9',
         'Subsid Corp Ltd 12',
-    ]
+    ] */
 
     return (
         <FullScreen handle={handle}>

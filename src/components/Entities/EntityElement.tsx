@@ -1,8 +1,7 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
-import { Colors } from '../../styledHelpers/Colors';
-import {Wrapper, InnerWrapper, BlockContainer, Title} from '../../styledHelpers/Components';
+import { BlockContainer, Title} from '../../styledHelpers/Components';
 
 
 const EntityBox = styled.div`

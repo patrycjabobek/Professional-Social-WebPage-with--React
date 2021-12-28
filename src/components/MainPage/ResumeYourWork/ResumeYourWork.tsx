@@ -6,9 +6,8 @@ import useDropdown from 'react-dropdown-hook';
 
 import { Colors } from '../../../styledHelpers/Colors';
 import Icon from '../../Common/Icon';
-import { Wrapper, Title, BlockContainer, InnerWrapper, Text, ImageContainer } from '../../../styledHelpers/Components';
+import { Wrapper, Title, BlockContainer, InnerWrapper } from '../../../styledHelpers/Components';
 import {Comment} from './Comment';
-import { IComments } from '../../../entities/comments';
 
 const StyledWrapper = styled(Wrapper)`
     justify-content: space-between;
@@ -58,7 +57,7 @@ interface IProps {
 
 export const ResumeYourWork: FC = (props: any) => {
 
-    const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
+    const [dropdownOpen, toggleDropdown] = useDropdown();
 
 
     const [inputText, setInputText] = useState<string>('');
@@ -106,7 +105,7 @@ export const ResumeYourWork: FC = (props: any) => {
                 <Title>Resume your work</Title>
                 <input value={inputText} onChange={inputHandler} type="text" name="" id="" placeholder="Filter by title..."/>
                 <OptionContainer>
-                    <InnerWrapper onClick={toggleDropdown}>
+                    <InnerWrapper>
                         <Icon src="./media/icons/wifi.svg"></Icon>
                         <h3>Followed &#x25BC; </h3>
                     </InnerWrapper>
